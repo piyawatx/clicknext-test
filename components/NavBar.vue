@@ -17,23 +17,27 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Transfer</a>
+              <NuxtLink class="nav-link" to=""> Deposit </NuxtLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Receive</a>
+              <NuxtLink class="nav-link" to=""> Withdraw </NuxtLink>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li> -->
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to=""> Transfer </NuxtLink>
+            </li>
+            <li class="nav-item">
+              <NuxtLink class="nav-link" to=""> Transaction </NuxtLink>
+            </li>
           </ul>
 
           <ul class="navbar-nav">
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Register</a> -->
-              <span class="nav-link text-white">{{email}}</span>
+              <span class="nav-link text-white">{{ email }}</span>
             </li>
             <li class="nav-item">
-              <button class="btn btn-danger"  @click="logout">Logout</button>
+              <!-- <button class="btn btn-danger" @click="logout">Logout</button> -->
+              <span  class="nav-link" role="button" @click="logout">Logout</span>
             </li>
           </ul>
         </div>
@@ -52,12 +56,12 @@ export default {
   created() {
     this.email = localStorage.email
   },
-  methods:{
-    logout(){
+  methods: {
+    logout() {
       this.$router.push('/login')
       localStorage.token = ''
-    }
-  }
+    },
+  },
 }
 </script>
 

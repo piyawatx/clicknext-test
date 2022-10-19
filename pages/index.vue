@@ -3,12 +3,6 @@
     <NavBar />
     <div class="container pt-3">
       <h1>Balance : {{ balance.toLocaleString() }} THB</h1>
-      <div class="py-2">
-        <button class="btn btn-primary btn-lg me-2">Deposit</button>
-        <button class="btn btn-primary btn-lg me-2">Withdraw</button>
-        <button class="btn btn-primary btn-lg me-2">Transfer</button>
-        <button class="btn btn-primary btn-lg">Transaction</button>
-      </div>
       
     </div>
   </div>
