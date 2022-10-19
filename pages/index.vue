@@ -2,8 +2,7 @@
   <div>
     <NavBar />
     <div class="container pt-3">
-      <h1>Balance : {{ balance.toLocaleString() }} THB</h1>
-      
+      <h1>Balance : {{ user.balance.toLocaleString() }} THB</h1>
     </div>
   </div>
 </template>
@@ -17,11 +16,15 @@ export default {
     return {
       token: null,
       balance: 0,
+      user:{
+        balance:0
+      }
     }
   },
   created() {
     this.token = localStorage.token
     this.checkLogin()
+    
   },
   methods: {
     checkLogin() {
@@ -29,26 +32,16 @@ export default {
         .post(url + '/welcome', {
           token: this.token,
         })
-        .then((res) => {
+        .then(async (res) => {
           if (res.data == 'Welcome') {
-            this.getUserByEmail()
+            await this.$store.dispatch('fetchUser',localStorage.email)
+            this.user = this.$store.state.user
+            console.log(this.user);
           }
         })
         .catch((err) => {
           localStorage.token = ''
           this.$router.push('/login')
-        })
-    },
-    getUserByEmail() {
-      console.log(localStorage.email)
-      axios
-        .get(url + '/user/' + localStorage.email)
-        .then((res) => {
-          console.log(res.data)
-          this.balance = res.data.balance
-        })
-        .catch((err) => {
-          console.log(err)
         })
     },
   },
