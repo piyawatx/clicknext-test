@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pt-3">
     <h1>Login</h1>
     <form @submit.prevent="Login">
       <div class="mb-3 mt-3">
@@ -41,7 +41,7 @@ export default {
     }
   },
   created() {
-    console.log(localStorage.token)
+    // console.log(localStorage.token)
     if (localStorage.token) {
       this.$router.push('/')
       // console.log("กลับหน้า home");
@@ -70,7 +70,7 @@ export default {
             // console.log(err)
             alert('ข้อมูลไม่ถูกต้อง')
           })
-      }else{
+      } else {
         alert('กรุณากรอกข้อมูลให้ครบ')
       }
     },

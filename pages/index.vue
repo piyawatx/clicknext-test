@@ -2,7 +2,9 @@
   <div>
     <NavBar />
     <div class="container pt-3">
-      <h1>Balance : {{ user.balance.toLocaleString() }} THB</h1>
+      <h1 v-if="user.balance">
+        Balance : {{ user.balance.toLocaleString() }} THB
+      </h1>
     </div>
   </div>
 </template>
@@ -16,15 +18,14 @@ export default {
     return {
       token: null,
       balance: 0,
-      user:{
-        balance:0
-      }
+      user: {
+        balance: 0,
+      },
     }
   },
   created() {
     this.token = localStorage.token
     this.checkLogin()
-    
   },
   methods: {
     checkLogin() {
@@ -34,9 +35,9 @@ export default {
         })
         .then(async (res) => {
           if (res.data == 'Welcome') {
-            await this.$store.dispatch('fetchUser',localStorage.email)
+            await this.$store.dispatch('fetchUser', localStorage.email)
             this.user = this.$store.state.user
-            console.log(this.user);
+            console.log(this.user)
           }
         })
         .catch((err) => {

@@ -37,7 +37,7 @@
             </li>
             <li class="nav-item">
               <!-- <button class="btn btn-danger" @click="logout">Logout</button> -->
-              <span  class="nav-link" role="button" @click="logout">Logout</span>
+              <span class="nav-link" role="button" @click="logout">Logout</span>
             </li>
           </ul>
         </div>
