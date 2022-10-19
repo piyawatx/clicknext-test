@@ -2,7 +2,13 @@
   <div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container">
-        <!-- <a class="navbar-brand" href="#">Logo</a> -->
+        <NuxtLink class="navbar-brand" to="/">
+          <img
+            src="https://seeklogo.com/images/N/nuxt-logo-64E0472AA8-seeklogo.com.png"
+            style="width: 40px"
+            alt=""
+          />
+        </NuxtLink>
         <button
           class="navbar-toggler"
           type="button"
@@ -17,26 +23,26 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <NuxtLink class="nav-link" to=""> Deposit </NuxtLink>
+              <NuxtLink class="nav-link" to="/deposit"> Deposit </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to=""> Withdraw </NuxtLink>
+              <NuxtLink class="nav-link" to="/withdraw"> Withdraw </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to=""> Transfer </NuxtLink>
+              <NuxtLink class="nav-link" to="/transfer"> Transfer </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to=""> Transaction </NuxtLink>
+              <NuxtLink class="nav-link" to="/transaction">
+                Transaction
+              </NuxtLink>
             </li>
           </ul>
 
           <ul class="navbar-nav">
             <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Register</a> -->
               <span class="nav-link text-white">{{ email }}</span>
             </li>
             <li class="nav-item">
-              <!-- <button class="btn btn-danger" @click="logout">Logout</button> -->
               <span class="nav-link" role="button" @click="logout">Logout</span>
             </li>
           </ul>

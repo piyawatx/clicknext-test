@@ -1,11 +1,8 @@
 <template>
   <div>
-    <NavBar />
-    <div class="container pt-3">
-      <h1 v-if="user.balance">
-        Balance : {{ user.balance.toLocaleString() }} THB
-      </h1>
-    </div>
+    <h1 v-if="user.balance">
+      Balance : {{ user.balance.toLocaleString() }} THB
+    </h1>
   </div>
 </template>
 
@@ -14,6 +11,7 @@ import axios from 'axios'
 const url = 'http://localhost:4001'
 export default {
   name: 'IndexPage',
+  layout: 'navbar',
   data() {
     return {
       token: null,
