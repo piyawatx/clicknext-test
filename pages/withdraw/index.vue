@@ -16,7 +16,10 @@ import axios from 'axios'
 export default {
   layout: 'navbar',
   async created() {
-    await this.$store.dispatch('fetchUser', localStorage.email)
+    if (await this.$store.dispatch('checkLogin')) {
+      await this.$store.dispatch('fetchUser', localStorage.email)
+      this.user = this.$store.state.user
+    }
   },
   data() {
     return {
@@ -32,7 +35,6 @@ export default {
       axios
         .put(this.$store.state.url + '/withdraw', data)
         .then((res) => {
-          // console.log(res.data)
           alert(
             'ถอนเงินจำนวน ' +
               this.amount +

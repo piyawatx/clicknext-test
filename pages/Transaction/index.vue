@@ -38,7 +38,8 @@ export default {
       email: '',
     }
   },
-  created() {
+  async created() {
+    await this.$store.dispatch('checkLogin')
     this.getTransaction()
   },
   methods: {

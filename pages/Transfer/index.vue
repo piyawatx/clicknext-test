@@ -25,6 +25,10 @@ export default {
       receiver: '',
     }
   },
+  async created(){
+    await this.$store.dispatch('checkLogin')
+
+  },
   methods: {
     Transfer() {
       let data = {
@@ -32,7 +36,6 @@ export default {
         receiver: this.receiver,
         amount: this.amount,
       }
-      // console.log(data)
       axios
         .post(this.$store.state.url + '/transfer', data)
         .then((res) => {

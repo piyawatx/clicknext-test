@@ -40,10 +40,8 @@ export default {
     }
   },
   created() {
-    // console.log(localStorage.token)
     if (localStorage.token) {
       this.$router.push('/')
-      // console.log("กลับหน้า home");
     }
   },
   methods: {
@@ -59,14 +57,12 @@ export default {
           })
           .then((res) => {
             console.log(res.data)
-            //   this.$store.commit('setEmail', this.email)
             localStorage.email = res.data.email
             localStorage.token = res.data.token
             localStorage.isLogin = true
             this.$router.push('/')
           })
           .catch((err) => {
-            // console.log(err)
             alert('ข้อมูลไม่ถูกต้อง')
           })
       } else {

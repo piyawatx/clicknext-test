@@ -23,4 +23,25 @@ export const actions = {
         console.log(err)
       })
   },
+
+  async checkLogin({ state, commit }) {
+    if (localStorage.token) {
+      return await axios
+        .post(state.url + '/welcome', {
+          token: localStorage.token,
+        })
+        .then((res) => {
+          if (res.data == 'Welcome') {
+            return true
+            // commit('setIsLogin', true)
+          } else {
+            this.$router.push('/login')
+            return false
+          }
+        })
+    } else {
+      this.$router.push('/login')
+      return false
+    }
+  },
 }
