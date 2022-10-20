@@ -32,7 +32,7 @@ export default {
         receiver: this.receiver,
         amount: this.amount,
       }
-      console.log(data)
+      // console.log(data)
       axios
         .post(this.$store.state.url + '/transfer', data)
         .then((res) => {
@@ -42,7 +42,7 @@ export default {
               this.amount +
               ' ไปยัง ' +
               this.receiver +
-              ' เรียบร้อย \n คงเหลือ '+res.data.balance
+              ' เรียบร้อย \n คงเหลือ '+res.data.userRemain
           )
           this.amount = ''
         })
