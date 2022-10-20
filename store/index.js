@@ -1,9 +1,9 @@
 import axios from 'axios'
-const url = 'http://localhost:4001'
 
 export const state = () => ({
   user: null,
   transaction: [],
+  url: 'http://localhost:4001',
 })
 
 export const mutations = {
@@ -13,9 +13,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchUser({ commit }, email) {
+  async fetchUser({ commit, state }, email) {
     await axios
-      .get(url + '/user/' + email)
+      .get(state.url + '/user/' + email)
       .then((res) => {
         commit('setUser', res.data)
       })

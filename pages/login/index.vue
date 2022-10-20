@@ -31,7 +31,6 @@
 
 <script>
 import axios from 'axios'
-const url = 'http://localhost:4001'
 
 export default {
   data() {
@@ -54,7 +53,7 @@ export default {
         let password = this.password
 
         axios
-          .post(url + '/login', {
+          .post(this.$store.state.url + '/login', {
             email: email,
             password: password,
           })
