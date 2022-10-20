@@ -29,13 +29,17 @@ export default {
         email: this.$store.state.user.email,
         amount: this.amount,
       }
-      console.log(data)
-      console.log(this.amount)
-      this.amount = ''
       axios
         .put(this.$store.state.url + '/deposit', data)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
+          alert(
+            'ฝากเงินจำนวน ' +
+              this.amount +
+              ' เรียบร้อย \n คงเหลือ ' +
+              res.data.balance
+          )
+          this.amount = ''
         })
         .catch((err) => {
           console.log(err)

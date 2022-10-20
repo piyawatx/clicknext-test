@@ -32,7 +32,7 @@ export default {
       axios
         .put(this.$store.state.url + '/withdraw', data)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           alert(
             'ถอนเงินจำนวน ' +
               this.amount +
